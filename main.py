@@ -49,7 +49,7 @@ class MainWindow(QWidget, From_Main):
             self.reports.setStyleSheet("color:red")
         else:
             self.all_data = pd.read_csv(path)
-            if "ورود" not in self.all_data.columns:
+            if "Enter" not in self.all_data.columns:
                 self.all_data["check-in"] = 0
             self.csvdirection.setText(path)
             self.reports.setText('')
@@ -148,7 +148,7 @@ class MainWindow(QWidget, From_Main):
                     self.uploadtable.item(i,4).setBackground(QtGui.QColor(0,100,0))
                     self.uploadtable.item(i,4).setText(checkin_cell)
                     
-                elif (self.all_data.iat[i, 4] == 1 or self.all_data.iat[i, 4] == "ورود کرد"):
+                elif (self.all_data.iat[i, 4] == 1 or self.all_data.iat[i, 4] == "Entered"):
                     checkin="The ticket is expired! \n Ticker reuse!!"
                     self.atencheckin.setStyleSheet("background-color: red;border: 1px solid black;")
                     self.atencheckin.setText(checkin)
